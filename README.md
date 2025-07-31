@@ -40,12 +40,15 @@ A simple AI Client exists that may be used to make Chat calls to your Azure AI s
 - [.NET 9 SDK](https://dotnet.microsoft.com/download)
 - For local development with VS Code:
   - [Visual Studio Code](https://code.visualstudio.com/)
+- For local development with docker:
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- An Azure Open AI Instance with a chat completion model deployed
+
 - MCP C# SDK:
   ```bash
   dotnet add package ModelContextProtocol --prerelease
   ```
-- An Azure Open AI Instance:
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
 ## Local Development
 
 ### Run the Server Locally
@@ -69,10 +72,13 @@ A simple AI Client exists that may be used to make Chat calls to your Azure AI s
 ### Creating a docker image
 1. Open terminal
 2. Navigate to MCP.Local;
+```bash
    cd .\src\MCP.Local\
+```   
 3. Build the docker container:
+```bash
    dotnet publish /t:PublishContainer
-
+```
 ### Testing the Available Tools
 
 The server provides these tools:
@@ -160,18 +166,32 @@ https://<webappname>.azurewebsites.net
 
 #### Run the AI Client
 Start the AI.Client project
-
+```
+dotnet run --project .\src\AI.Client\AI.Client.csproj
+```
 The client will connect to your MCP server and add all tools, notifying you in the console.
 
 You can ask the LLM to provide information; if you provide a message that can be handled by one of the tools it will call the tool to get information from the tool and report that to you.
 
 The application will run until you either type exit and hit enter or if you press enter with no other input.
 
-You may clear the chat history by typing *clear*
+You may clear the chat history by typing 
+```
+clear
+```
 
-You can review the sytem prompt by typing *show prompt*
+You can review the sytem prompt by typing 
+```
+show prompt
+```
 
-You can change the sytem prompt by typing *set prompt* or *change prompt*.
+You can change the sytem prompt by typing 
+```
+set prompt
+``` or 
+```
+change prompt
+```
 If you enter an empty prompt, the tool will reset the prompt back to the default prompt / what was entered in appsettings.json.
 
 Observe that the if the LLM has knowledge that conflicts with the tools, it will notify the user of that. This may be corrected via changes to the prompt, for example: 
