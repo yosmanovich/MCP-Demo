@@ -45,7 +45,7 @@ A simple AI Client exists that may be used to make Chat calls to your Azure AI s
   dotnet add package ModelContextProtocol --prerelease
   ```
 - An Azure Open AI Instance:
-
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 ## Local Development
 
 ### Run the Server Locally
@@ -66,6 +66,13 @@ A simple AI Client exists that may be used to make Chat calls to your Azure AI s
 4. The MCP server will be available at `http://localhost:5000`
 5. When you're done, press Ctrl+C in the terminal to stop the app
 
+### Creating a docker image
+1. Open terminal
+2. Navigate to MCP.Local;
+   cd .\src\MCP.Local\
+3. Build the docker container:
+   dotnet publish /t:PublishContainer
+
 ### Testing the Available Tools
 
 The server provides these tools:
@@ -73,9 +80,6 @@ The server provides these tools:
 - **Temperature Conversion**: 
   - `CelsiusToFahrenheit` - Converts temperature from Celsius to Fahrenheit
   - `FahrenheitToCelsius` - Converts temperature from Fahrenheit to Celsius
-- **Weather Data**:
-  - `GetAlerts` - Get active weather alerts for a US state (provide state code like "CA", "TX")
-  - `GetForecast` - Get weather forecast for coordinates (provide latitude and longitude)
 
 ### Connect to the Local MCP Server
 
