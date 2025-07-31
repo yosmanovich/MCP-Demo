@@ -1,0 +1,32 @@
+{
+	"servers": {
+		"mcp-Local": {
+			"type": "stdio",
+			"command": "dotnet",
+			"args": [
+				"run",
+				"--project",
+				"src/MCP.Local/MCP.Local.csproj"
+			]
+		},
+		"mcp-local-in-docker": {
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"mcpserverdocker"
+			],
+			"type": "stdio"
+		},
+		"mcp-server": {
+			"url": "http://localhost:5000/",
+			"type": "http"
+		},
+		"mcp-server-in-azure": {
+			"type": "http",
+			"url": "https://testsite1111-f7ceb8dcemcmcbes.eastus2-01.azurewebsites.net/"
+		}
+	},
+	"inputs": []
+}
