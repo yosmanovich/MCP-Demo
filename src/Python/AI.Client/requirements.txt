@@ -1,0 +1,8 @@
+openai
+langgraph 
+langchain_openai
+ipykernel
+azure-identity
+mcp
+python-dotenv
+anthropic
